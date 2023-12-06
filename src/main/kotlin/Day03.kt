@@ -17,9 +17,10 @@ class Day03 {
         return symbols
                 .filter { it.value == "*" }
                 .map { symbol ->
-            codes.filter { code -> symbol.column in code.expandedColumn && symbol.row in code.expandedRow }
-                    .map { it.value.toLong() }
-        }.filter { it.size == 2 }.sumOf { it.reduce { acc, i -> i * acc } }
+                    codes.filter { code -> symbol.column in code.expandedColumn && symbol.row in code.expandedRow }
+                            .map { it.value.toLong() }
+                }.filter { it.size == 2 }
+                .sumOf { it.reduce { acc, i -> i * acc } }
     }
 
 
