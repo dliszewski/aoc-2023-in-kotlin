@@ -14,7 +14,9 @@ class Day03 {
     fun part2(input: List<String>): Long {
         val numbers = input.mapIndexed { row, it -> mapToCodes(it, row) }
         val (symbols, codes) = numbers.flatten().partition { it.symbol }
-        return symbols.map { symbol ->
+        return symbols
+                .filter { it.value == "*" }
+                .map { symbol ->
             codes.filter { code -> symbol.column in code.expandedColumn && symbol.row in code.expandedRow }
                     .map { it.value.toLong() }
         }.filter { it.size == 2 }.sumOf { it.reduce { acc, i -> i * acc } }

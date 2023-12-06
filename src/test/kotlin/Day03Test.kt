@@ -57,7 +57,7 @@ internal class Day03Test {
             val answer = Day03().part2(input)
 
             // Assert
-            assertThat(answer).isEqualTo(71535)
+            assertThat(answer).isEqualTo(84900879)
         }
     }
 }
