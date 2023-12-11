@@ -19,7 +19,7 @@ class Day08 {
         var steps = 0L
         var directionIndex = 0
         var currentNode: Node = firstNode
-        while (!currentNode.name.endsWith(suffix)) {
+        while (!currentNode.isEndNode(suffix)) {
             if (directionIndex > directions.length - 1) {
                 directionIndex = 0
             }
@@ -61,8 +61,8 @@ class Day08 {
             }
         }
 
-        fun isEndNode(): Boolean {
-            return name.endsWith("Z")
+        fun isEndNode(suffix: String): Boolean {
+            return name.endsWith(suffix)
         }
     }
 
